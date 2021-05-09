@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
+import 'package:food_store_ui/models/restaurant/restaurant.dart';
+import 'package:food_store_ui/services/restaurant_service/restaurant_sevice.dart';
 import 'package:food_store_ui/widgets/filter_type_card/filter_type_card.dart';
+import 'package:food_store_ui/widgets/restaurant_card/restaurant_card.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -8,6 +10,13 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  List<Restaurant> restaurantList = RestaurantService().getAll();
+
+  @override
+  void initState() {
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -182,6 +191,118 @@ class _HomePageState extends State<HomePage> {
             "Open restaurants",
             style: TextStyle(fontWeight: FontWeight.bold, fontSize: 19),
           ),
+        ),
+        SizedBox(
+          height: 20,
+        ),
+        Column(
+          children: [
+            Container(
+                margin: EdgeInsets.only(left: 25, right: 25),
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(50),
+                  child: Image.asset(
+                    "assets/images/food-picture.jpeg",
+                    fit: BoxFit.contain,
+                  ),
+                )),
+            SizedBox(
+              height: 15,
+            ),
+            Container(
+              margin: EdgeInsets.only(left: 25),
+              alignment: Alignment.topLeft,
+              child: Text(
+                "Chuck Donut Restaurant",
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 20,
+                ),
+              ),
+            ),
+            SizedBox(
+              height: 10,
+            ),
+            Container(
+              margin: EdgeInsets.only(left: 25),
+              child: Row(
+                children: [
+                  Icon(
+                    Icons.delivery_dining,
+                    color: Colors.grey,
+                  ),
+                  SizedBox(
+                    width: 10,
+                  ),
+                  Text(
+                    "Free delivery",
+                  ),
+                ],
+              ),
+            ),
+            SizedBox(
+              height: 10,
+            ),
+            Container(
+              margin: EdgeInsets.only(left: 25),
+              child: Row(
+                children: [
+                  Container(
+                    decoration: BoxDecoration(
+                        color: Color(0xFFCCCCCC),
+                        borderRadius: BorderRadius.circular(5)),
+                    padding: EdgeInsets.all(10),
+                    child: Text(
+                      "Doughnut",
+                      style: TextStyle(color: Colors.white),
+                    ),
+                  ),
+                  SizedBox(
+                    width: 15,
+                  ),
+                  Container(
+                    decoration: BoxDecoration(
+                        color: Color(0xFFCCCCCC),
+                        borderRadius: BorderRadius.circular(5)),
+                    padding: EdgeInsets.all(10),
+                    child: Text(
+                      "Desert",
+                      style: TextStyle(color: Colors.white),
+                    ),
+                  ),
+                  SizedBox(
+                    width: 15,
+                  ),
+                  Container(
+                    decoration: BoxDecoration(
+                        color: Color(0xFFCCCCCC),
+                        borderRadius: BorderRadius.circular(5)),
+                    padding: EdgeInsets.all(10),
+                    child: Text(
+                      "Breakfast",
+                      style: TextStyle(color: Colors.white),
+                    ),
+                  ),
+                  SizedBox(
+                    width: 15,
+                  ),
+                  Container(
+                    decoration: BoxDecoration(
+                        color: Color(0xFFCCCCCC),
+                        borderRadius: BorderRadius.circular(5)),
+                    padding: EdgeInsets.all(10),
+                    child: Text(
+                      "Lunch",
+                      style: TextStyle(color: Colors.white),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            SizedBox(
+              height: 30,
+            ),
+          ],
         ),
       ],
     );
