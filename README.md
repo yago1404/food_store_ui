@@ -17,6 +17,7 @@ some differences like icons and grey colors will be adjusted with a time
 ## How to run
 
 To run this project you need install [flutter](https://flutter.dev) and open a android or IOS emulator
+
 Later you will run
 ```bash
 flutter run
